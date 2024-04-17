@@ -1,0 +1,21 @@
+paths:
+  /api/productos/:
+    get:
+      summary: 'Obtener lista de productos'
+      responses:
+        '200':
+          description: 'Lista de productos'
+          schema:
+            type: 'array'
+            items:
+              $ref: '#/definitions/Producto'
+definitions:
+  Producto:
+    type: 'object'
+    properties:
+      id:
+        type: 'integer'
+      nombre:
+        type: 'string'
+      precio:
+        type: 'number'

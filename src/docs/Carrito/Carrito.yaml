@@ -1,0 +1,39 @@
+paths:
+  /api/carrito/:
+    get:
+      summary: 'Obtener contenido del carrito'
+      responses:
+        '200':
+          description: 'Contenido del carrito'
+          schema:
+            type: 'array'
+            items:
+              $ref: '#/definitions/ItemCarrito'
+    post:
+      summary: 'Agregar producto al carrito'
+      parameters:
+        - in: 'body'
+          name: 'item'
+          description: 'Producto a agregar al carrito'
+          required: true
+          schema:
+            $ref: '#/definitions/ItemCarrito'
+      responses:
+        '201':
+          description: 'Producto agregado al carrito'
+          schema:
+            $ref: '#/definitions/ItemCarrito'
+definitions:
+  ItemCarrito:
+    type: 'object'
+    properties:
+      idProducto:
+        type: 'integer'
+      nombreProducto:
+        type: 'string'
+      cantidad:
+        type: 'integer'
+      precioUnitario:
+        type: 'number'
+      total:
+        type: 'number'
